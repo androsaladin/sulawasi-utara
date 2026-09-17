@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Destinasi Wisata - Sulawesi Utara</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- Custom CSS untuk Tombol Gaya Budaya -->
+    <style>
+      #destinasiTab .nav-link {
+        background-color: #222222;
+        color: #ffffff !important;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      #destinasiTab .nav-link:hover {
+        background-color: #333333;
+      }
+      #destinasiTab .nav-link.active {
+        background-color: #f35588 !important; /* Warna oranye/pink khas tema */
+        color: #ffffff !important;
+      }
+    </style>
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i> info@sulut-explore.id</li>
+            <li><i class="fa fa-map"></i> Manado, Sulawesi Utara 95111</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>Sulut</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html">Beranda</a></li>
+                      <li><a href="budaya.html">Budaya</a></li>
+                      <li><a href="destinasi.html" class="active">Destinasi</a></li>
+                      <li><a href="peta manado.html">Peta Wilayah Manado</a></li>
+                      <li><a href="kontak.html">kontak kami</a></li>
+                      <li><a href="destinasi.html"><i class="fa fa-calendar"></i> Jelajahi Sekarang</a></li>
+                  </ul> 
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="index.html">Home</a> / Destinasi</span>
+          <h3>Jelajahi Destinasi Sulawesi Utara</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Bagian Utama Destinasi dengan Sistem Tab Tombol Bergaya Budaya ***** -->
+  <div class="single-property section" style="padding-bottom: 50px;">
+    <div class="container">
+      
+      <!-- Tab Menu Navigasi Destinasi (Gaya Tombol Kotak Budaya) -->
+      <div class="row" style="margin-bottom: 40px;">
+        <div class="col-lg-12">
+          <div class="section-heading" style="text-align: center; margin-bottom: 25px;">
+            <h6>| Pilihan Wisata</h6>
+            <h2>Pilih Destinasi Populer</h2>
+          </div>
+          <ul class="nav nav-tabs justify-content-center" id="destinasiTab" role="tablist" style="border-bottom: none; gap: 10px;">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active px-4 py-3" id="bunaken-tab" data-bs-toggle="tab" data-bs-target="#bunaken" type="button" role="tab" aria-controls="bunaken" aria-selected="true" style="font-weight: 600;">Taman Nasional Bunaken</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link px-4 py-3" id="siladen-tab" data-bs-toggle="tab" data-bs-target="#siladen" type="button" role="tab" aria-controls="siladen" aria-selected="false" style="font-weight: 600;">Pulau Siladen</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link px-4 py-3" id="linow-tab" data-bs-toggle="tab" data-bs-target="#linow" type="button" role="tab" aria-controls="linow" aria-selected="false" style="font-weight: 600;">Danau Linow</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link px-4 py-3" id="bukitkasih-tab" data-bs-toggle="tab" data-bs-target="#bukitkasih" type="button" role="tab" aria-controls="bukitkasih" aria-selected="false" style="font-weight: 600;">Bukit Kasih</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="tab-content" id="destinasiTabContent">
+        
+        <!-- 1. TAB BUNAKEN -->
+        <div class="tab-pane fade show active" id="bunaken" role="tabpanel" aria-labelledby="bunaken-tab">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="main-image">
+                <img src="assets/images/bunaken, taman laut nasional.jpeg" alt="Taman Nasional Bunaken" style="border-radius: 12px; width: 100%;">
+              </div>
+              <div class="main-content">
+                <span class="category">Taman Laut</span>
+                <h4>Taman Nasional Bunaken, Manado</h4>
+                <p>Taman Nasional Bunaken adalah kawasan konservasi laut seluas 890,65 km2 yang terletak di Teluk Manado. Kawasan ini menjadi rumah bagi lebih dari 390 spesies terumbu karang dan ratusan jenis ikan, menjadikannya salah satu destinasi <strong>menyelam terbaik di dunia</strong>. Airnya yang jernih memungkinkan wisatawan melihat kehidupan bawah laut hingga kedalaman puluhan meter.
+                <br><br>Selain Pulau Bunaken, kawasan taman nasional ini juga mencakup empat pulau lain, yaitu Manado Tua, Siladen, Mantehage, dan Nain. Untuk mencapai Bunaken, wisatawan dapat menggunakan kapal dari Pelabuhan Manado dengan waktu tempuh sekitar 45 menit.</p>
+              </div> 
+              <div class="accordion" id="accordionBunaken">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingB1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB1" aria-expanded="true" aria-controls="collapseB1">
+                      Bagaimana cara menuju Bunaken?
+                    </button>
+                  </h2>
+                  <div id="collapseB1" class="accordion-collapse collapse show" aria-labelledby="headingB1" data-bs-parent="#accordionBunaken">
+                    <div class="accordion-body">
+                      Dari pusat Kota Manado, wisatawan dapat naik kapal cepat maupun kapal nelayan dari Pelabuhan Manado atau Marina Blue Point menuju Pulau Bunaken. Perjalanan memakan waktu sekitar 30-45 menit tergantung jenis kapal yang digunakan.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingB2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB2" aria-expanded="false" aria-controls="collapseB2">
+                      Aktivitas apa saja yang bisa dilakukan?
+                    </button>
+                  </h2>
+                  <div id="collapseB2" class="accordion-collapse collapse" aria-labelledby="headingB2" data-bs-parent="#accordionBunaken">
+                    <div class="accordion-body">
+                      Aktivitas utama di Bunaken adalah <code>diving</code> dan <code>snorkeling</code> untuk menikmati keindahan terumbu karang dan biota laut. Selain itu wisatawan juga bisa bersantai di pantai berpasir putih, berkeliling pulau, atau mencicipi kuliner khas nelayan setempat.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingB3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB3" aria-expanded="false" aria-controls="collapseB3">
+                      Kenapa Bunaken begitu istimewa?
+                    </button>
+                  </h2>
+                  <div id="collapseB3" class="accordion-collapse collapse" aria-labelledby="headingB3" data-bs-parent="#accordionBunaken">
+                    <div class="accordion-body">
+                      Bunaken memiliki <strong>dinding karang vertikal (drop off)</strong> yang langka, di mana kedalaman laut bisa mencapai lebih dari 1.000 meter hanya beberapa meter dari garis pantai. Kondisi ini menciptakan ekosistem laut yang sangat kaya dan menjadikan Bunaken diakui sebagai salah satu situs selam terbaik di dunia.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-table">
+                <ul>
+                  <li>
+                    <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                    <h4>890,65 km2<br><span>Luas Kawasan</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                    <h4>20+ Titik<br><span>Lokasi Menyelam</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                    <h4>Kapal<br><span>Akses dari Manado</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                    <h4>Terjaga<br><span>Kawasan Konservasi</span></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. TAB PULAU SILADEN -->
+        <div class="tab-pane fade" id="siladen" role="tabpanel" aria-labelledby="siladen-tab">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="main-image">
+                <img src="assets/images/pulau siladen kepulauan bunaken.jpg" alt="Pulau Siladen" style="border-radius: 12px; width: 100%;">
+              </div>
+              <div class="main-content">
+                <span class="category">Pulau & Pantai</span>
+                <h4>Pulau Siladen, Kepulauan Bunaken</h4>
+                <p>Pulau Siladen adalah pulau kecil berpasir putih yang menjadi bagian dari kawasan Taman Nasional Bunaken. Meskipun berukuran lebih kecil dibandingkan Bunaken, pulau ini menawarkan suasana yang lebih tenang dengan air laut sejernih kristal, menjadikannya pilihan favorit bagi wisatawan yang mencari ketenangan sambil tetap menikmati <strong>keindahan bawah laut Sulawesi Utara</strong>.
+                <br><br>Pulau ini dapat ditempuh dengan kapal dari Pelabuhan Manado atau Marina Blue Point dengan waktu tempuh sekitar 30-45 menit. Selain snorkeling dan diving, pengunjung juga bisa berkemah di tepi pantai atau sekadar bersantai menikmati pemandangan laut lepas.</p>
+              </div> 
+              <div class="accordion" id="accordionSiladen">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingS1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseS1" aria-expanded="true" aria-controls="collapseS1">
+                      Bagaimana cara menuju Pulau Siladen?
+                    </button>
+                  </h2>
+                  <div id="collapseS1" class="accordion-collapse collapse show" aria-labelledby="headingS1" data-bs-parent="#accordionSiladen">
+                    <div class="accordion-body">
+                      Wisatawan dapat naik kapal cepat atau kapal nelayan dari Pelabuhan Manado maupun Marina Blue Point menuju Pulau Siladen. Perjalanan memakan waktu sekitar 30-45 menit tergantung jenis kapal yang digunakan.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingS2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseS2" aria-expanded="false" aria-controls="collapseS2">
+                      Aktivitas apa saja yang bisa dilakukan?
+                    </button>
+                  </h2>
+                  <div id="collapseS2" class="accordion-collapse collapse" aria-labelledby="headingS2" data-bs-parent="#accordionSiladen">
+                    <div class="accordion-body">
+                      Aktivitas utama di Pulau Siladen adalah <code>snorkeling</code> dan <code>diving</code> untuk menikmati kejernihan air dan terumbu karang di sekitarnya. Wisatawan juga dapat berkemah di tepi pantai, berjemur, atau berjalan mengelilingi pulau yang tidak terlalu luas.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingS3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseS3" aria-expanded="false" aria-controls="collapseS3">
+                      Kenapa Pulau Siladen begitu istimewa?
+                    </button>
+                  </h2>
+                  <div id="collapseS3" class="accordion-collapse collapse" aria-labelledby="headingS3" data-bs-parent="#accordionSiladen">
+                    <div class="accordion-body">
+                      Pulau Siladen dikenal dengan <strong>pasir putihnya yang halus</strong> dan air lautnya yang sangat jernih dengan gradasi warna biru kehijauan. Karena pengunjungnya lebih sedikit dibandingkan Bunaken, suasananya terasa lebih tenang dan cocok untuk healing maupun berkemah bersama keluarga.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-table">
+                <ul>
+                  <li>
+                    <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                    <h4>2,5 km2<br><span>Luas Pulau</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                    <h4>Pasir Putih<br><span>Ciri Khas Pantai</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                    <h4>Kapal<br><span>Akses dari Manado</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                    <h4>Tenang<br><span>Cocok untuk Camping</span></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. TAB DANAU LINOW -->
+        <div class="tab-pane fade" id="linow" role="tabpanel" aria-labelledby="linow-tab">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="main-image">
+                <img src="assets/images/danau linow tomohon.jpg" alt="Danau Linow" style="border-radius: 12px; width: 100%;">
+              </div>
+              <div class="main-content">
+                <span class="category">Danau & Alam</span>
+                <h4>Danau Linow, Tomohon</h4>
+                <p>Danau Linow adalah danau vulkanik yang terletak di Kota Tomohon, sekitar 40 menit dari pusat Kota Manado. Keunikan utama danau ini terletak pada warna airnya yang dapat berubah-ubah, mulai dari hijau toska, biru, hingga kecoklatan, akibat kandungan belerang dan mineral yang tinggi dari aktivitas <strong>vulkanik di dasar danau</strong>.
+                <br><br>Danau ini dikelilingi perbukitan hijau dengan udara yang sejuk khas dataran tinggi Tomohon. Fasilitas gazebo dan jalur pandang di tepi danau memudahkan wisatawan menikmati pemandangan sambil menghirup udara segar pegunungan.</p>
+              </div> 
+              <div class="accordion" id="accordionLinow">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingL1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseL1" aria-expanded="true" aria-controls="collapseL1">
+                      Bagaimana cara menuju Danau Linow?
+                    </button>
+                  </h2>
+                  <div id="collapseL1" class="accordion-collapse collapse show" aria-labelledby="headingL1" data-bs-parent="#accordionLinow">
+                    <div class="accordion-body">
+                      Dari pusat Kota Manado, wisatawan dapat menempuh perjalanan darat menuju Tomohon selama kurang lebih 40 menit menggunakan kendaraan pribadi maupun angkutan umum menuju kawasan Danau Linow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingL2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseL2" aria-expanded="false" aria-controls="collapseL2">
+                      Aktivitas apa saja yang bisa dilakukan?
+                    </button>
+                  </h2>
+                  <div id="collapseL2" class="accordion-collapse collapse" aria-labelledby="headingL2" data-bs-parent="#accordionLinow">
+                    <div class="accordion-body">
+                      Aktivitas utama di Danau Linow adalah <code>berfoto</code> dan <code>bersantai</code> sambil menikmati perubahan warna air danau. Tersedia juga kafe dan gazebo di tepi danau bagi wisatawan yang ingin menikmati suasana sambil bersantap.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingL3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseL3" aria-expanded="false" aria-controls="collapseL3">
+                      Kenapa Danau Linow begitu istimewa?
+                    </button>
+                  </h2>
+                  <div id="collapseL3" class="accordion-collapse collapse" aria-labelledby="headingL3" data-bs-parent="#accordionLinow">
+                    <div class="accordion-body">
+                      Danau Linow memiliki <strong>fenomena perubahan warna air</strong> yang jarang ditemui, dipengaruhi oleh suhu, sudut cahaya matahari, dan kandungan belerang di dasar danau. Aroma khas belerang serta suasana sejuk pegunungan menambah pengalaman unik saat berkunjung.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-table">
+                <ul>
+                  <li>
+                    <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                    <h4>±800 mdpl<br><span>Ketinggian Lokasi</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                    <h4>Berubah-ubah<br><span>Warna Air Danau</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                    <h4>±40 Menit<br><span>Akses dari Manado</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                    <h4>Sejuk<br><span>Dataran Tinggi Tomohon</span></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. TAB BUKIT KASIH -->
+        <div class="tab-pane fade" id="bukitkasih" role="tabpanel" aria-labelledby="bukitkasih-tab">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="main-image">
+                <img src="assets/images/bukit kasih kanonang.jpg" alt="Bukit Kasih Kanonang" style="border-radius: 12px; width: 100%;">
+              </div>
+              <div class="main-content">
+                <span class="category">Wisata Religi & Alam</span>
+                <h4>Bukit Kasih Kanonang, Tomohon</h4>
+                <p>Bukit Kasih Kanonang adalah destinasi wisata religi dan alam yang terletak di kawasan Kanonang, Tomohon. Bukit ini terkenal dengan <strong>monumen lima agama</strong> yang berdiri megah di puncaknya, melambangkan semangat toleransi dan kerukunan antarumat beragama di Sulawesi Utara.
+                <br><br>Untuk mencapai puncak, wisatawan perlu menaiki ratusan anak tangga yang melewati kawasan kawah belerang aktif, sehingga di sepanjang perjalanan tercium aroma khas belerang. Dari puncak, pengunjung dapat menikmati pemandangan pegunungan dan perbukitan hijau yang mengelilingi kawasan ini.</p>
+              </div> 
+              <div class="accordion" id="accordionBukitKasih">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingK1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK1" aria-expanded="true" aria-controls="collapseK1">
+                      Bagaimana cara menuju Bukit Kasih?
+                    </button>
+                  </h2>
+                  <div id="collapseK1" class="accordion-collapse collapse show" aria-labelledby="headingK1" data-bs-parent="#accordionBukitKasih">
+                    <div class="accordion-body">
+                      Dari pusat Kota Manado, wisatawan dapat menempuh perjalanan darat menuju Kanonang, Tomohon selama kurang lebih 30 menit menggunakan kendaraan pribadi maupun angkutan umum.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingK2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK2" aria-expanded="false" aria-controls="collapseK2">
+                      Aktivitas apa saja yang bisa dilakukan?
+                    </button>
+                  </h2>
+                  <div id="collapseK2" class="accordion-collapse collapse" aria-labelledby="headingK2" data-bs-parent="#accordionBukitKasih">
+                    <div class="accordion-body">
+                      Aktivitas utama di Bukit Kasih adalah <code>trekking ringan</code> menaiki tangga menuju puncak serta <code>berfoto</code> di area monumen lima agama. Wisatawan juga bisa berziarah sesuai keyakinan masing-masing atau sekadar menikmati pemandangan kawah belerang dari dekat.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingK3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK3" aria-expanded="false" aria-controls="collapseK3">
+                      Kenapa Bukit Kasih begitu istimewa?
+                    </button>
+                  </h2>
+                  <div id="collapseK3" class="accordion-collapse collapse" aria-labelledby="headingK3" data-bs-parent="#accordionBukitKasih">
+                    <div class="accordion-body">
+                      Bukit Kasih menjadi satu-satunya destinasi di Sulawesi Utara yang memadukan <strong>simbol toleransi lima agama</strong> dengan fenomena alam kawah belerang aktif. Perpaduan nilai religi, budaya, dan alam ini menjadikannya destinasi yang sarat makna sekaligus memanjakan mata.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-table">
+                <ul>
+                  <li>
+                    <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                    <h4>5 Monumen<br><span>Simbol Lima Agama</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                    <h4>Kawah Aktif<br><span>Sumber Belerang</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                    <h4>±30 Menit<br><span>Akses dari Manado</span></h4>
+                  </li>
+                  <li>
+                    <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                    <h4>Ratusan Anak Tangga<br><span>Menuju Puncak</span></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End Tab Content -->
+
+    </div>
+  </div>
+
+  <footer class="footer-no-gap">
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Hak Cipta © 2026 Sulut Explore. Situs pengenalan Provinsi Sulawesi Utara. Semua hak dilindungi. 
+        Desain dasar: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

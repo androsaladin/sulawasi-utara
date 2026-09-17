@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peta Wilayah Jalanan Manado - Sulawesi Utara</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #0f172a;
+  }
+
+  header {
+    background: linear-gradient(90deg, #1e3a8a, #1d4ed8);
+    color: white;
+    padding: 14px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  header p {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+
+  /* Styling Tombol Back / Silang */
+  .btn-back {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-back:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.05);
+    color: white;
+  }
+
+  #map {
+    flex: 1;
+    width: 100%;
+  }
+
+  .panel {
+    position: absolute;
+    top: 90px;
+    right: 12px;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 999;
+    max-width: 230px;
+    font-size: 0.85rem;
+  }
+
+  .panel h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #1e3a8a;
+  }
+
+  .panel label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .leaflet-popup-content b {
+    color: #1d4ed8;
+  }
+
+  #search-box {
+    position: absolute;
+    top: 90px;
+    left: 12px;
+    z-index: 999;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    overflow: hidden;
+  }
+
+  #search-input {
+    border: none;
+    outline: none;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    width: 220px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🗺️ Peta Wilayah Jalanan Manado</h1>
+  <p>Sulawesi Utara, Indonesia</p>
+  <!-- Tombol Kembali / Silang ke Beranda -->
+  <a href="index.html" class="btn-back" title="Kembali ke Beranda">✕</a>
+</header>
+
+<div id="search-box">
+  <input type="text" id="search-input" placeholder="Cari lokasi... (mis: Malalayang)" />
+</div>
+
+<div class="panel">
+  <h3>Lapisan Peta</h3>
+  <label><input type="radio" name="baselayer" value="street" checked> Jalanan (Standar)</label>
+  <label><input type="radio" name="baselayer" value="satellite"> Satelit</label>
+  <label><input type="radio" name="baselayer" value="topo"> Topografi</label>
+  <hr style="margin:8px 0;">
+  <h3>Titik Penting</h3>
+  <label><span class="legend-dot" style="background:#e11d48"></span> Pusat Kota</label>
+  <label><span class="legend-dot" style="background:#059669"></span> Wisata</label>
+  <label><span class="legend-dot" style="background:#d97706"></span> Fasilitas Umum</label>
+</div>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+
+<script>
+  // Koordinat pusat Manado, Sulawesi Utara
+  const manadoCenter = [1.4748, 124.8421];
+
+  const map = L.map('map', {
+    zoomControl: false
+  }).setView(manadoCenter, 13);
+
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+  // Layer dasar
+  const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri',
+    maxZoom: 19
+  });
+
+  const topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data: &copy; OpenStreetMap contributors, SRTM | Style: &copy; OpenTopoMap',
+    maxZoom: 17
+  });
+
+  // Ganti layer sesuai pilihan
+  document.querySelectorAll('input[name="baselayer"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      map.eachLayer(layer => {
+        if (layer instanceof L.TileLayer) map.removeLayer(layer);
+      });
+      if (e.target.value === 'street') streetLayer.addTo(map);
+      if (e.target.value === 'satellite') satelliteLayer.addTo(map);
+      if (e.target.value === 'topo') topoLayer.addTo(map);
+    });
+  });
+
+  // Ikon kustom berwarna
+  function coloredIcon(color) {
+    return L.divIcon({
+      className: 'custom-icon',
+      html: `<div style="background:${color};width:16px;height:16px;border-radius:50%;border:2px solid white;box-shadow:0 0 4px rgba(0,0,0,0.5);"></div>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8]
+    });
+  }
+
+  // Data titik penting di Manado
+  const lokasi = [
+    { nama: "Boulevard Manado (Pusat Kota)", koordinat: [1.4838, 124.8425], tipe: "pusat", ket: "Jalan utama pusat perbelanjaan & bisnis" },
+    { nama: "Pantai Malalayang", koordinat: [1.4425, 124.8073], tipe: "wisata", ket: "Kawasan pantai populer di selatan Manado" },
+    { nama: "Bunaken (Pelabuhan Penyeberangan)", koordinat: [1.4995, 124.7960], tipe: "wisata", ket: "Akses menuju Taman Nasional Bunaken" },
+    { nama: "Jalan Sam Ratulangi", koordinat: [1.4780, 124.8390], tipe: "pusat", ket: "Jalan protokol utama Kota Manado" },
+    { nama: "Megamas", koordinat: [1.4880, 124.8330], tipe: "wisata", ket: "Kawasan kuliner tepi pantai" },
+    { nama: "Bandara Sam Ratulangi", koordinat: [1.5492, 124.9264], tipe: "fasilitas", ket: "Bandara internasional Manado" },
+    { nama: "RSUP Kandou Manado", koordinat: [1.4640, 124.8500], tipe: "fasilitas", ket: "Rumah sakit rujukan utama" },
+    { nama: "Terminal Malalayang", koordinat: [1.4650, 124.8020], tipe: "fasilitas", ket: "Terminal angkutan umum" },
+    { nama: "Jalan Piere Tendean (Boulevard II)", koordinat: [1.4600, 124.8280], tipe: "pusat", ket: "Jalan arteri sepanjang pesisir" },
+    { nama: "Tugu Boboca", koordinat: [1.4795, 124.8415], tipe: "wisata", ket: "Landmark ikonik Kota Manado" }
+  ];
+
+  const warna = { pusat: "#e11d48", wisata: "#059669", fasilitas: "#d97706" };
+
+  const markerLayer = L.layerGroup();
+
+  lokasi.forEach(loc => {
+    const marker = L.marker(loc.koordinat, { icon: coloredIcon(warna[loc.tipe]) })
+      .bindPopup(`<b>${loc.nama}</b><br>${loc.ket}`);
+    marker.addTo(markerLayer);
+  });
+
+  markerLayer.addTo(map);
+
+  // Garis rute jalan utama contoh (Boulevard)
+  const rutePesisir = L.polyline([
+    [1.4995, 124.7960],
+    [1.4880, 124.8330],
+    [1.4838, 124.8425],
+    [1.4600, 124.8280],
+    [1.4425, 124.8073]
+  ], { color: '#2563eb', weight: 4, dashArray: '6,6', opacity: 0.8 }).addTo(map);
+
+  rutePesisir.bindPopup("Rute jalan pesisir Manado (ilustrasi)");
+
+  // Fitur pencarian sederhana (Nominatim OSM)
+  document.getElementById('search-input').addEventListener('keypress', async function(e) {
+    if (e.key === 'Enter') {
+      const query = e.target.value + ", Manado, Sulawesi Utara";
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
+        const data = await res.json();
+        if (data && data.length > 0) {
+          const lat = parseFloat(data[0].lat);
+          const lon = parseFloat(data[0].lon);
+          map.setView([lat, lon], 16);
+          L.marker([lat, lon], { icon: coloredIcon('#7c3aed') })
+            .addTo(map)
+            .bindPopup(`<b>${data[0].display_name}</b>`)
+            .openPopup();
+        } else {
+          alert("Lokasi tidak ditemukan.");
+        }
+      } catch (err) {
+        alert("Gagal mencari lokasi. Periksa koneksi internet Anda.");
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
